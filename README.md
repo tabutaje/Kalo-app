@@ -1,14 +1,53 @@
-# Kalo 🥗
+<p align="center">
+  <img src="docs/feature-graphic.png" alt="Kalo — contador de calorías para España" width="100%"/>
+</p>
 
-App móvil de seguimiento de calorías y macros pensada para España: registra lo que comes buscando productos reales de Mercadona, Lidl, Carrefour, Dia, Aldi, Eroski, AhorraMás, Alcampo, Consum, Hipercor y más.
+<h1 align="center">Kalo 🥗</h1>
 
-- 🇪🇸 Miles de productos españoles con la información nutricional ya cargada
-- 📊 Objetivos diarios de calorías, proteínas, carbos y grasas
-- 🧑‍🤝‍🧑 Multi-perfil para toda la familia (con foto o emoji como avatar)
-- 🍳 Recetas y productos personalizados
-- 📅 Calendario mensual y dashboard semanal
-- 🔒 Privacidad total: todo se guarda en local, sin cuentas, sin tracking, sin anuncios
-- 📴 Funciona 100% sin conexión
+<p align="center">
+  <b>Contador de calorías y macros pensado para España.</b><br/>
+  Offline, sin cuentas, sin tracking, sin anuncios.
+</p>
+
+<p align="center">
+  <img alt="versión" src="https://img.shields.io/badge/version-1.6.0-10b981"/>
+  <img alt="plataforma" src="https://img.shields.io/badge/plataforma-Android-3ddc84"/>
+  <img alt="licencia" src="https://img.shields.io/badge/licencia-MIT-blue"/>
+  <img alt="stack" src="https://img.shields.io/badge/React-19-61dafb"/>
+  <img alt="capacitor" src="https://img.shields.io/badge/Capacitor-8-119eff"/>
+</p>
+
+---
+
+Registra lo que comes buscando productos reales de **Mercadona, Lidl, Carrefour, Dia, Aldi, Eroski, AhorraMás, Alcampo, Consum, Hipercor** y muchos más supermercados españoles — la información nutricional ya viene cargada, solo eliges la cantidad.
+
+### ✨ Características
+
+- 🇪🇸 **Miles de productos españoles** con valores nutricionales reales precargados
+- 📊 **Objetivos diarios** de calorías, proteínas, carbohidratos y grasas
+- 🧑‍🤝‍🧑 **Multi-perfil** para toda la familia, cada uno con su avatar (foto o emoji)
+- 🍳 **Recetas y productos personalizados** que puedes añadir tú
+- 📅 **Calendario mensual** y dashboard semanal con tu progreso
+- 🔒 **Privacidad total**: todo se guarda en tu dispositivo, sin cuentas, sin tracking, sin anuncios
+- 📴 **Funciona 100% sin conexión**
+
+### 📱 Capturas
+
+> 🚧 Capturas reales próximamente. Para añadirlas: guarda tus screenshots en `docs/screenshots/` y actualiza esta sección.
+
+<!--
+<p align="center">
+  <img src="docs/screenshots/01-daily-log.png" width="200"/>
+  <img src="docs/screenshots/02-dashboard.png" width="200"/>
+  <img src="docs/screenshots/03-calendar.png" width="200"/>
+  <img src="docs/screenshots/04-profiles.png" width="200"/>
+</p>
+-->
+
+### 📥 Descarga
+
+- **Google Play Store**: *próximamente* (en revisión)
+- **APK directo**: descarga la última versión desde la [pestaña Releases](../../releases)
 
 ---
 

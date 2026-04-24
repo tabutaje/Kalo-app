@@ -1,0 +1,65 @@
+# Compila el bundle web con Vite y lo publica en GitHub Pages
+# en cada push a main. La app queda accesible en:
+#   https://tabutaje.github.io/Kalo-app/
+#
+# Requisito: en el repo → Settings → Pages → Source = "GitHub Actions".
+name: Deploy to GitHub Pages
+
+on:
+  # Publica automáticamente en cada push a main
+  push:
+    branches: [main]
+  # Permite lanzarlo a mano desde la pestaña Actions
+  workflow_dispatch:
+
+# Permisos mínimos que necesita la action de Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si se encolan varios deploys, cancela los anteriores y despliega solo el último
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Vite)
+        env:
+          # Activa el base path /Kalo-app/ en vite.config.ts
+          GITHUB_PAGES: '1'
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
