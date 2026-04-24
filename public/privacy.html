@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de privacidad · Kalo</title>
+  <meta name="description" content="Política de privacidad de Kalo, la app española de seguimiento de calorías. Sin cuentas, sin tracking, sin anuncios." />
+  <meta name="robots" content="index, follow" />
+  <link rel="icon" type="image/png" href="./logo.png" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --emerald-50:  #ecfdf5;
+      --emerald-100: #d1fae5;
+      --emerald-500: #10b981;
+      --emerald-600: #059669;
+      --emerald-700: #047857;
+      --gray-50:  #f9fafb;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-700: #374151;
+      --gray-900: #111827;
+    }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.65;
+      color: var(--gray-700);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Hero */
+    header.hero {
+      background: linear-gradient(135deg, var(--emerald-600), var(--emerald-700));
+      color: white;
+      padding: 3rem 1.5rem 4rem;
+      text-align: center;
+    }
+    header.hero .logo {
+      width: 72px; height: 72px; border-radius: 18px;
+      background: white; padding: 8px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: inline-block; margin-bottom: 1rem;
+    }
+    header.hero .logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    header.hero h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
+    header.hero .tagline { opacity: 0.9; font-size: 1rem; margin-bottom: 0.25rem; }
+    header.hero .updated { opacity: 0.75; font-size: 0.85rem; }
+
+    /* Main */
+    main {
+      max-width: 720px;
+      margin: -2rem auto 3rem;
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: relative;
+    }
+
+    main > p.intro {
+      font-size: 1.05rem;
+      color: var(--gray-700);
+      margin-bottom: 2rem;
+    }
+
+    /* Summary callout */
+    .callout {
+      background: var(--emerald-50);
+      border-left: 4px solid var(--emerald-500);
+      padding: 1.25rem 1.5rem;
+      border-radius: 8px;
+      margin: 2rem 0;
+    }
+    .callout strong { color: var(--emerald-700); }
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--gray-900);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    h2:first-of-type { margin-top: 0; }
+
+    p { margin-bottom: 1rem; }
+
+    ul { margin: 0.75rem 0 1rem 1.5rem; }
+    li { margin-bottom: 0.35rem; }
+
+    strong { color: var(--gray-900); }
+
+    /* Permissions table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0 1.5rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--gray-200);
+    }
+    th {
+      background: var(--gray-50);
+      font-weight: 600;
+      color: var(--gray-900);
+    }
+    td code {
+      background: var(--gray-50);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+      color: var(--emerald-700);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: var(--gray-500);
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: var(--emerald-600);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer a:hover { text-decoration: underline; }
+
+    .contact-email {
+      display: inline-block;
+      background: var(--emerald-50);
+      color: var(--emerald-700);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: 0.5rem;
+      transition: background 0.15s;
+    }
+    .contact-email:hover { background: var(--emerald-100); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--gray-200);
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      header.hero { padding: 2rem 1rem 3rem; }
+      header.hero h1 { font-size: 1.6rem; }
+      main { padding: 2rem 1.25rem; margin: -1.5rem 1rem 2rem; border-radius: 12px; }
+      h2 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="logo"><img src="./logo.png" alt="Logo Kalo" /></div>
+    <h1>Política de Privacidad</h1>
+    <p class="tagline">Kalo — seguimiento de calorías y macros</p>
+    <p class="updated">Última actualización: 20 de abril de 2026</p>
+  </header>
+
+  <main>
+    <p class="intro">
+      Kalo (&laquo;la aplicación&raquo;, &laquo;nosotros&raquo;) es una aplicación móvil de seguimiento de calorías y nutrición desarrollada para dispositivos Android.
+      Esta política explica qué datos maneja la aplicación y cómo los protege.
+    </p>
+
+    <div class="callout">
+      <strong>En una frase:</strong> Kalo no recoge, transmite ni comparte ningún dato personal.
+      Todo lo que apuntas se guarda exclusivamente en la memoria local de tu propio dispositivo.
+    </div>
+
+    <h2>1. Datos que el usuario introduce</h2>
+    <p>Dentro de la app puedes introducir voluntariamente:</p>
+    <ul>
+      <li>Nombre de perfil y foto/avatar</li>
+      <li>Objetivos nutricionales (calorías, macros, agua)</li>
+      <li>Comidas, alimentos y cantidades consumidas</li>
+      <li>Peso corporal (opcional)</li>
+      <li>Productos personalizados y recetas</li>
+    </ul>
+    <p>
+      <strong>Estos datos se almacenan únicamente en el almacenamiento local del dispositivo</strong>
+      (<code>localStorage</code> del navegador WebView integrado). Nunca se envían a ningún servidor, nube o tercero.
+    </p>
+
+    <h2>2. Datos que NO recopilamos</h2>
+    <ul>
+      <li><strong>No tenemos cuentas de usuario.</strong> No hay registro ni inicio de sesión.</li>
+      <li><strong>No utilizamos analíticas ni telemetría.</strong> No recogemos eventos, estadísticas de uso ni identificadores de dispositivo.</li>
+      <li><strong>No mostramos publicidad.</strong></li>
+      <li><strong>No utilizamos SDKs de terceros</strong> que recojan datos (no hay Firebase Analytics, AdMob, Crashlytics, Meta SDK, etc.).</li>
+      <li><strong>No accedemos a contactos, ubicación, cámara, micrófono ni archivos</strong> del dispositivo, salvo cuando eliges manualmente una imagen para tu avatar.</li>
+    </ul>
+
+    <h2>3. Permisos que solicita la app</h2>
+    <table>
+      <thead>
+        <tr><th>Permiso</th><th>Motivo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>INTERNET</code></td>
+          <td>Únicamente para que la WebView cargue los recursos empaquetados en la propia aplicación. La app funciona completamente sin conexión.</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Cuando subes una foto de perfil, el sistema operativo te muestra el selector de imágenes estándar de Android.
+      La imagen elegida se codifica en base64 y se guarda localmente; no se sube a ningún sitio.
+    </p>
+
+    <h2>4. Compras integradas y anuncios</h2>
+    <p>La aplicación es totalmente gratuita. No incluye compras integradas ni publicidad de ningún tipo.</p>
+
+    <h2>5. Menores</h2>
+    <p>
+      La aplicación no está dirigida a menores de 13 años. Si eres menor de 13 años, no debes utilizar esta aplicación sin el consentimiento de tus padres o tutores.
+      Al no recopilar datos, la aplicación cumple por diseño con COPPA y normativas equivalentes.
+    </p>
+
+    <h2>6. Tus derechos</h2>
+    <p>
+      Dado que no recopilamos ni almacenamos datos fuera de tu dispositivo, no tenemos nada que entregarte ni que borrar en nuestros sistemas.
+    </p>
+    <p>
+      <strong>Para eliminar todos tus datos de Kalo, basta con desinstalar la aplicación.</strong>
+      El almacenamiento local se borra automáticamente al desinstalar.
+      También puedes exportar tus datos en cualquier momento en formato CSV o JSON desde los ajustes de la app.
+    </p>
+
+    <h2>7. Cambios en esta política</h2>
+    <p>
+      Si en el futuro incluimos alguna funcionalidad que implique transmisión de datos (por ejemplo, copia de seguridad en la nube opcional),
+      actualizaremos esta política y avisaremos claramente dentro de la aplicación antes de que la función entre en vigor.
+      Nunca activaremos ninguna recolección de datos sin consentimiento explícito.
+    </p>
+
+    <h2>8. Contacto</h2>
+    <p>Si tienes preguntas sobre esta política de privacidad, puedes escribirnos:</p>
+    <p style="text-align:center">
+      <a class="contact-email" href="mailto:contactokaloapp.unlatch730@passmail.net">
+        📧 contactokaloapp.unlatch730@passmail.net
+      </a>
+    </p>
+
+    <hr />
+    <p style="text-align:center; color: var(--gray-500); font-size: 0.9rem">
+      Kalo v1.6.0 — hecho con cariño en España 🇪🇸
+    </p>
+  </main>
+
+  <footer>
+    <p>
+      <a href="./">← Volver a la app</a> &nbsp;·&nbsp;
+      <a href="https://github.com/tabutaje/Kalo-app" target="_blank" rel="noopener">Código en GitHub</a>
+    </p>
+  </footer>
+
+</body>
+</html>
