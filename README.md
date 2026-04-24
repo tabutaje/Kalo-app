@@ -17,6 +17,11 @@
   <img alt="capacitor" src="https://img.shields.io/badge/Capacitor-8-119eff"/>
 </p>
 
+<p align="center">
+  <a href="https://tabutaje.github.io/Kalo-app/"><img alt="Probar online" src="https://img.shields.io/badge/▶_Probar_online-10b981?style=for-the-badge&logoColor=white"/></a>
+  <a href="https://github.com/tabutaje/Kalo-app/releases/latest"><img alt="Descargar APK" src="https://img.shields.io/badge/⬇_Descargar_APK-3ddc84?style=for-the-badge&logoColor=white"/></a>
+</p>
+
 ---
 
 Registra lo que comes buscando productos reales de **Mercadona, Lidl, Carrefour, Dia, Aldi, Eroski, AhorraMás, Alcampo, Consum, Hipercor** y muchos más supermercados españoles — la información nutricional ya viene cargada, solo eliges la cantidad.
@@ -46,8 +51,9 @@ Registra lo que comes buscando productos reales de **Mercadona, Lidl, Carrefour,
 
 ### 📥 Descarga
 
-- **Google Play Store**: *próximamente* (en revisión)
-- **APK directo**: descarga la última versión desde la [pestaña Releases](../../releases)
+- **🌐 Versión web**: [tabutaje.github.io/Kalo-app](https://tabutaje.github.io/Kalo-app/) — funciona en cualquier navegador, sin instalar nada
+- **🤖 APK directo**: [última release](https://github.com/tabutaje/Kalo-app/releases/latest) (descárgalo y ábrelo en tu Android)
+- **▶️ Google Play Store**: *próximamente* (en revisión)
 
 ---
 
