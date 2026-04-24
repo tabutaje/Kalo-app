@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Kalo</string>
+    <string name="title_activity_main">Kalo</string>
+    <string name="package_name">com.kaloapp.nutricion</string>
+    <string name="custom_url_scheme">com.kaloapp.nutricion</string>
+</resources>

@@ -1,0 +1,76 @@
+# ===================================================================
+# Dependencias y artefactos regenerables
+# ===================================================================
+node_modules/
+dist/
+.vite/
+*.tsbuildinfo
+
+# ===================================================================
+# SECRETOS — NUNCA subir estos archivos
+# ===================================================================
+# Keystore con el que firmamos los releases. Si se filtra, cualquiera
+# puede firmar actualizaciones maliciosas haciéndose pasar por la app.
+*.jks
+*.keystore
+
+# Credenciales del keystore (passwords, alias).
+# El build.gradle lee de este archivo si existe; si no, construye sin firmar.
+android/keystore.properties
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# ===================================================================
+# Android
+# ===================================================================
+android/app/build/
+android/build/
+android/.gradle/
+android/local.properties
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+# Capacitor genera/sincroniza este directorio con `cap sync`
+android/app/src/main/assets/public/
+android/app/src/main/assets/capacitor.config.json
+android/app/src/main/assets/capacitor.plugins.json
+android/capacitor-cordova-android-plugins/
+
+# ===================================================================
+# iOS (si vuelves a activar la plataforma iOS)
+# ===================================================================
+ios/App/Pods/
+ios/App/build/
+ios/DerivedData/
+ios/App/App/public/
+ios/App/App/capacitor.config.json
+ios/App/App/config.xml
+*.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# ===================================================================
+# Binarios de release (demasiado grandes para git — usa Releases)
+# ===================================================================
+*.apk
+*.aab
+
+# ===================================================================
+# Editor / IDE
+# ===================================================================
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# ===================================================================
+# Logs
+# ===================================================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

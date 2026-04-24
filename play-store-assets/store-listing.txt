@@ -1,0 +1,135 @@
+=====================================================================
+ KALO — FICHA DE GOOGLE PLAY STORE (v1.6.0)
+ Copia y pega estos textos en los campos correspondientes.
+=====================================================================
+
+
+───────────────────────────────────────────────────────────────────
+ NOMBRE DE LA APP  (max 30 caracteres)
+───────────────────────────────────────────────────────────────────
+Kalo: Calorías y Nutrición
+
+
+───────────────────────────────────────────────────────────────────
+ DESCRIPCIÓN BREVE  (max 80 caracteres)
+───────────────────────────────────────────────────────────────────
+Contador de calorías y macros con productos de supermercados españoles.
+
+
+───────────────────────────────────────────────────────────────────
+ DESCRIPCIÓN COMPLETA  (max 4000 caracteres)
+───────────────────────────────────────────────────────────────────
+Kalo es el contador de calorías y macronutrientes pensado para España: apunta lo que comes buscando productos reales de Mercadona, Lidl, Carrefour, Dia, Aldi, Eroski, AhorraMás, Alcampo, Consum, Hipercor y más. Sin registros, sin conexión, sin anuncios.
+
+✅ PENSADO PARA ESPAÑA
+• Miles de productos de marca con la información nutricional ya cargada (Hacendado, Dia, Eroski, Alcampo, Consum, Kellogg's, Danone, Central Lechera Asturiana…)
+• Productos genéricos (frutas, verduras, carnes, pescados, legumbres…) basados en FatSecret y OpenFoodFacts
+• Categorías y comidas en español: desayuno, almuerzo, comida, merienda y cena
+
+📊 SIGUE TUS OBJETIVOS DIARIOS
+• Calorías, proteínas, carbohidratos y grasas
+• Barras de progreso para cada objetivo
+• Balance calórico con ejercicio restado
+• Registro de peso y agua
+• Rachas y logros
+
+🧑‍🤝‍🧑 MULTI-PERFIL PARA TODA LA FAMILIA
+• Crea tantos perfiles como quieras (pareja, hijos, compañeros de piso)
+• Cada perfil tiene sus propios objetivos, comidas, productos y recetas
+• Foto o emoji personalizable como avatar
+• Pantalla de selección de usuario al abrir la app
+
+🍳 RECETAS Y PRODUCTOS PERSONALIZADOS
+• Combina ingredientes en recetas con porciones calculadas automáticamente
+• Añade tus propios productos si algo no está en la base de datos
+• Marca favoritos para encontrarlos al instante
+• Copia un día completo a otra fecha
+
+📅 CALENDARIO Y RESUMEN
+• Vista mensual con el consumo de cada día
+• Dashboard semanal con evolución de peso, medias y desviaciones
+• Gráficas de macros y tendencias
+• Tipos de dieta: flexible, vegetariana, vegana, baja en carbos, keto o alta en proteína
+
+🔒 PRIVACIDAD PRIMERO
+• Todo se guarda localmente en tu dispositivo
+• Ningún dato se envía a ningún servidor
+• Sin cuentas, sin registro, sin publicidad, sin tracking
+• Funciona 100% sin conexión
+
+📥 EXPORTA TUS DATOS
+• CSV con el historial completo para abrir en Excel
+• Copia de seguridad JSON restaurable
+
+Kalo es gratuita y no tiene compras dentro de la app. Perfecta si quieres controlar tu alimentación sin complicaciones, sin gurús y sin pagar suscripciones mensuales.
+
+¿Problemas o sugerencias? Escríbenos: [tu-email@aquí]
+
+
+───────────────────────────────────────────────────────────────────
+ CATEGORÍA
+───────────────────────────────────────────────────────────────────
+Categoría principal: Salud y bienestar
+Etiquetas sugeridas:  Dieta, Nutrición, Fitness, Calorías
+
+
+───────────────────────────────────────────────────────────────────
+ CONTACTO
+───────────────────────────────────────────────────────────────────
+Email del desarrollador: [contactokaloapp.unlatch730@passmail.net]
+Sitio web (opcional):   [tu-dominio.es]
+Política de privacidad: [URL donde subas PRIVACY_POLICY.md — p.ej. GitHub Pages]
+
+
+───────────────────────────────────────────────────────────────────
+ CLASIFICACIÓN POR EDADES  (cuestionario IARC)
+───────────────────────────────────────────────────────────────────
+Responde "NO" a todas las preguntas sobre violencia, sexo, drogas,
+apuestas, lenguaje ofensivo, compras integradas, usuarios generando
+contenido y ubicación compartida. Resultado esperado: PEGI 3 / Todos.
+
+
+───────────────────────────────────────────────────────────────────
+ SEGURIDAD DE LOS DATOS  (Data Safety)
+───────────────────────────────────────────────────────────────────
+• ¿Recoges o compartes datos?               → NO
+• ¿Los datos están cifrados en tránsito?    → Sí (no hay tránsito, todo local)
+• ¿El usuario puede solicitar su borrado?   → Sí (desinstalando la app)
+
+Categorías a declarar: NINGUNA (la app no recoge datos).
+La única conexión de red es la descarga de la WebView, no hay telemetría.
+
+
+───────────────────────────────────────────────────────────────────
+ PÚBLICO Y CONTENIDO
+───────────────────────────────────────────────────────────────────
+• Público objetivo: 13 años o más (app de dieta — no recomendado para menores)
+• Anuncios: NO
+• Compras integradas: NO
+
+
+───────────────────────────────────────────────────────────────────
+ CAPTURAS DE PANTALLA  (mínimo 2, recomendado 4-8)
+───────────────────────────────────────────────────────────────────
+Resolución: entre 320 y 3840 px por lado, ratio 16:9 o 9:16.
+Formato: PNG o JPG sin transparencia.
+
+Recomendado capturar desde el emulador o móvil:
+  1. Pantalla "¿Quién usa Kalo?" (selector de perfil)
+  2. Hoy / Daily log con comidas y barra de progreso
+  3. Añadir alimento (buscador con productos de Mercadona, Lidl…)
+  4. Resumen / Dashboard con gráficas
+  5. Calendario mensual
+  6. Gestor de perfiles con avatares personalizados
+
+Truco: en Android, mantener pulsado Volumen- + Encendido captura pantalla.
+Luego pásalas al PC (via USB, email o Drive) y súbelas a la Play Console.
+
+
+───────────────────────────────────────────────────────────────────
+ VERSIONADO
+───────────────────────────────────────────────────────────────────
+versionName: 1.6.0
+versionCode: 7
+Track recomendado para la primera subida: INTERNAL TESTING
+  (se publica al instante, solo para ti y testers invitados por email)
