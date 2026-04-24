@@ -38,16 +38,18 @@ Registra lo que comes buscando productos reales de **Mercadona, Lidl, Carrefour,
 
 ### 📱 Capturas
 
-> 🚧 Capturas reales próximamente. Para añadirlas: guarda tus screenshots en `docs/screenshots/` y actualiza esta sección.
-
-<!--
 <p align="center">
-  <img src="docs/screenshots/01-daily-log.png" width="200"/>
-  <img src="docs/screenshots/02-dashboard.png" width="200"/>
-  <img src="docs/screenshots/03-calendar.png" width="200"/>
-  <img src="docs/screenshots/04-profiles.png" width="200"/>
+  <img src="docs/screenshots/01-home.jpg" width="22%" alt="Pantalla principal con progreso del día"/>
+  <img src="docs/screenshots/02-comidas.jpg" width="22%" alt="Registro de comidas del día"/>
+  <img src="docs/screenshots/03-productos.jpg" width="22%" alt="Buscador de productos españoles"/>
+  <img src="docs/screenshots/04-calendario.jpg" width="22%" alt="Calendario mensual con balance calórico"/>
 </p>
--->
+<p align="center">
+  <img src="docs/screenshots/05-resumen.jpg" width="22%" alt="Resumen con racha y balance semanal/mensual"/>
+  <img src="docs/screenshots/06-logros.jpg" width="22%" alt="Logros desbloqueables"/>
+  <img src="docs/screenshots/07-ajustes.jpg" width="22%" alt="Ajustes de dieta y objetivos diarios"/>
+  <img src="docs/screenshots/08-perfiles.jpg" width="22%" alt="Selección de perfil multi-usuario"/>
+</p>
 
 ### 📥 Descarga
 
