@@ -1,4 +1,7 @@
 import { AppState, UserProfile, ProfilesState } from '@/types';
+import { Capacitor } from '@capacitor/core';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { Share } from '@capacitor/share';
 
 const STORAGE_KEY = 'calorapp_state';
 const PROFILES_KEY = 'calorapp_profiles';
@@ -198,28 +201,88 @@ export function exportToCSV(state: AppState): string {
   return lines.join('\n');
 }
 
-export function downloadCSV(state: AppState, profileName?: string): void {
-  const csv = exportToCSV(state);
-  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
+function buildFilename(prefix: string, profileName: string | undefined, ext: string): string {
   const suffix = profileName ? `-${profileName.replace(/\s+/g, '_')}` : '';
-  a.download = `kalo-datos${suffix}-${new Date().toISOString().split('T')[0]}.csv`;
-  a.click();
-  URL.revokeObjectURL(url);
+  const date = new Date().toISOString().split('T')[0];
+  return `${prefix}${suffix}-${date}.${ext}`;
 }
 
-export function exportToJSON(state: AppState, profileName?: string): void {
-  const json = JSON.stringify(state, null, 2);
-  const blob = new Blob([json], { type: 'application/json' });
+/**
+ * Descarga un archivo en el navegador (web/PWA).
+ * - Crea el <a>, lo añade al DOM, hace click y lo elimina.
+ * - Llama a revokeObjectURL con un setTimeout para que el navegador
+ *   tenga tiempo de iniciar la descarga antes de invalidar el blob URL.
+ *   (Sin esto, navegadores como Firefox cancelan la descarga.)
+ */
+function downloadInBrowser(content: string, mimeType: string, filename: string): void {
+  const blob = new Blob([content], { type: mimeType });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  const suffix = profileName ? `-${profileName.replace(/\s+/g, '_')}` : '';
-  a.download = `kalo-backup${suffix}-${new Date().toISOString().split('T')[0]}.json`;
+  a.download = filename;
+  a.style.display = 'none';
+  document.body.appendChild(a);
   a.click();
-  URL.revokeObjectURL(url);
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/**
+ * Guarda un archivo en el dispositivo nativo (Android/iOS) y abre el sheet
+ * de "Compartir" para que el usuario decida qué hacer con él (Drive, email,
+ * Files app, etc.). En Android la WebView ignora el atributo `download` de
+ * `<a>`, por eso aquí no podemos usar el flujo del navegador.
+ *
+ * Devuelve true si todo fue OK, false si el usuario canceló o hubo error
+ * (para que la UI pueda mostrar un fallback si quiere).
+ */
+async function exportNative(content: string, mimeType: string, filename: string): Promise<boolean> {
+  try {
+    // Cache es ideal: no requiere permisos y Android lo limpia solo.
+    // Si el usuario decide guardarlo en Drive/Files, ya lo persiste él.
+    const writeResult = await Filesystem.writeFile({
+      path: filename,
+      data: content,
+      directory: Directory.Cache,
+      encoding: Encoding.UTF8,
+    });
+
+    await Share.share({
+      title: 'Exportar datos de Kalo',
+      text: `Exportación de Kalo (${filename})`,
+      url: writeResult.uri,
+      dialogTitle: 'Guardar o compartir el archivo',
+    });
+    return true;
+  } catch (err: any) {
+    // El usuario cancelando el sheet de "Compartir" lanza un error con este mensaje
+    if (err?.message?.toLowerCase?.().includes('share canceled')) {
+      return false;
+    }
+    console.error('Error exportando en nativo:', err, { filename, mimeType });
+    alert('No se ha podido exportar el archivo. Detalles en la consola.');
+    return false;
+  }
+}
+
+export async function downloadCSV(state: AppState, profileName?: string): Promise<void> {
+  const csv = exportToCSV(state);
+  const filename = buildFilename('kalo-datos', profileName, 'csv');
+  if (Capacitor.isNativePlatform()) {
+    await exportNative(csv, 'text/csv;charset=utf-8;', filename);
+  } else {
+    downloadInBrowser(csv, 'text/csv;charset=utf-8;', filename);
+  }
+}
+
+export async function exportToJSON(state: AppState, profileName?: string): Promise<void> {
+  const json = JSON.stringify(state, null, 2);
+  const filename = buildFilename('kalo-backup', profileName, 'json');
+  if (Capacitor.isNativePlatform()) {
+    await exportNative(json, 'application/json', filename);
+  } else {
+    downloadInBrowser(json, 'application/json', filename);
+  }
 }
 
 export { createDefaultProfile };
