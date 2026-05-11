@@ -1,6 +1,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import Modal from '@/components/common/Modal';
 import CreateRecipeModal from '@/components/meals/CreateRecipeModal';
+import ShareToProfilesModal from '@/components/profiles/ShareToProfilesModal';
 import { Recipe, MealType, MEAL_LABELS } from '@/types';
 import { useApp } from '@/context/AppContext';
 
@@ -12,12 +13,14 @@ interface AddRecipeToMealModalProps {
 }
 
 export default function AddRecipeToMealModal({ isOpen, onClose, mealType, date }: AddRecipeToMealModalProps) {
-  const { state, addRecipeToMeal, removeRecipe } = useApp();
+  const { state, addRecipeToMeal, removeRecipe, shareRecipeToProfiles, profiles } = useApp();
   const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [servingsCount, setServingsCount] = useState(1);
   const [editingRecipe, setEditingRecipe] = useState<Recipe | null>(null);
+  const [sharingRecipe, setSharingRecipe] = useState<Recipe | null>(null);
   const [search, setSearch] = useState('');
+  const hasOtherProfiles = profiles.length > 1;
 
   useEffect(() => {
     if (!isOpen) setSearch('');
@@ -202,6 +205,15 @@ export default function AddRecipeToMealModal({ isOpen, onClose, mealType, date }
                     >
                       ✏️
                     </button>
+                    {hasOtherProfiles && (
+                      <button
+                        onClick={(e) => { e.stopPropagation(); setSharingRecipe(recipe); }}
+                        className="text-gray-300 hover:text-primary-500 text-sm p-1"
+                        title="Compartir con otro perfil"
+                      >
+                        📤
+                      </button>
+                    )}
                     <button
                       onClick={(e) => { e.stopPropagation(); setConfirmDelete(recipe.id); }}
                       className="text-gray-300 hover:text-red-400 text-sm p-1"
@@ -222,6 +234,18 @@ export default function AddRecipeToMealModal({ isOpen, onClose, mealType, date }
         isOpen={!!editingRecipe}
         onClose={() => setEditingRecipe(null)}
         editRecipe={editingRecipe}
+      />
+
+      <ShareToProfilesModal
+        isOpen={!!sharingRecipe}
+        onClose={() => setSharingRecipe(null)}
+        itemEmoji={sharingRecipe?.emoji ?? '🍳'}
+        itemTitle={sharingRecipe?.name ?? ''}
+        itemSubtitle={sharingRecipe ? `${sharingRecipe.ingredients.length} ingredientes · ${sharingRecipe.nutritionPerServing.kcal} kcal/ración` : undefined}
+        itemKind="recipe"
+        onShare={(targetIds) => {
+          if (sharingRecipe) shareRecipeToProfiles(sharingRecipe, targetIds);
+        }}
       />
     </Modal>
   );

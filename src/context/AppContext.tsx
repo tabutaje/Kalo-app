@@ -39,6 +39,9 @@ interface AppContextValue {
   renameProfile: (profileId: string, name: string, emoji: string) => void;
   removeProfile: (profileId: string) => void;
   updateProfilePhoto: (profileId: string, photoDataUrl: string | undefined) => void;
+  // Sharing across profiles in the same device
+  shareCustomProductToProfiles: (product: Product, targetProfileIds: string[]) => void;
+  shareRecipeToProfiles: (recipe: Recipe, targetProfileIds: string[]) => void;
 }
 
 const AppContext = createContext<AppContextValue | null>(null);
@@ -479,6 +482,69 @@ export function AppProvider({ children }: { children: ReactNode }) {
     }));
   }, []);
 
+  // ---- Sharing custom products / recipes between profiles in the same device ----
+  const shareCustomProductToProfiles = useCallback((product: Product, targetProfileIds: string[]) => {
+    if (targetProfileIds.length === 0) return;
+    const targets = new Set(targetProfileIds);
+    const isOverride = seedProductIds.has(product.id);
+    setProfilesState((ps) => ({
+      ...ps,
+      profiles: ps.profiles.map((profile) => {
+        if (!targets.has(profile.id)) return profile;
+        const current = profile.state.customProducts;
+        let nextCustom: Product[];
+        if (isOverride) {
+          // Seed override: keep same id so it overrides the seed in the target as well.
+          const exists = current.some((p) => p.id === product.id);
+          nextCustom = exists
+            ? current.map((p) => (p.id === product.id ? { ...product, isCustom: true } : p))
+            : [...current, { ...product, isCustom: true }];
+        } else {
+          // Pure custom: if a custom with same name+brand already exists, update it (keeping its id
+          // so existing meal entries that reference it still resolve). Otherwise insert with a new id.
+          const dupIdx = current.findIndex(
+            (p) =>
+              p.name.trim().toLowerCase() === product.name.trim().toLowerCase() &&
+              p.brand.trim().toLowerCase() === product.brand.trim().toLowerCase()
+          );
+          if (dupIdx >= 0) {
+            const updated = [...current];
+            updated[dupIdx] = { ...product, id: current[dupIdx].id, isCustom: true };
+            nextCustom = updated;
+          } else {
+            const newId = `custom-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+            nextCustom = [...current, { ...product, id: newId, isCustom: true }];
+          }
+        }
+        return { ...profile, state: { ...profile.state, customProducts: nextCustom } };
+      }),
+    }));
+  }, [seedProductIds]);
+
+  const shareRecipeToProfiles = useCallback((recipe: Recipe, targetProfileIds: string[]) => {
+    if (targetProfileIds.length === 0) return;
+    const targets = new Set(targetProfileIds);
+    setProfilesState((ps) => ({
+      ...ps,
+      profiles: ps.profiles.map((profile) => {
+        if (!targets.has(profile.id)) return profile;
+        const current = profile.state.recipes;
+        const dupIdx = current.findIndex(
+          (r) => r.name.trim().toLowerCase() === recipe.name.trim().toLowerCase()
+        );
+        let nextRecipes: Recipe[];
+        if (dupIdx >= 0) {
+          const updated = [...current];
+          updated[dupIdx] = { ...recipe, id: current[dupIdx].id };
+          nextRecipes = updated;
+        } else {
+          nextRecipes = [...current, { ...recipe, id: crypto.randomUUID() }];
+        }
+        return { ...profile, state: { ...profile.state, recipes: nextRecipes } };
+      }),
+    }));
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
@@ -513,6 +579,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
         renameProfile,
         removeProfile,
         updateProfilePhoto,
+        shareCustomProductToProfiles,
+        shareRecipeToProfiles,
       }}
     >
       {children}

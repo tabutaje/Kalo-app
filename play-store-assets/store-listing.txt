@@ -1,5 +1,5 @@
 =====================================================================
- KALO — FICHA DE GOOGLE PLAY STORE (v1.6.0)
+ KALO — FICHA DE GOOGLE PLAY STORE (v1.7.0)
  Copia y pega estos textos en los campos correspondientes.
 =====================================================================
 
@@ -129,7 +129,7 @@ Luego pásalas al PC (via USB, email o Drive) y súbelas a la Play Console.
 ───────────────────────────────────────────────────────────────────
  VERSIONADO
 ───────────────────────────────────────────────────────────────────
-versionName: 1.6.0
-versionCode: 7
+versionName: 1.7.0
+versionCode: 10
 Track recomendado para la primera subida: INTERNAL TESTING
   (se publica al instante, solo para ti y testers invitados por email)

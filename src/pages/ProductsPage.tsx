@@ -3,9 +3,19 @@ import { useApp } from '@/context/AppContext';
 import Header from '@/components/layout/Header';
 import { CATEGORY_LABELS, ProductCategory, Product } from '@/types';
 import CustomProductModal from '@/components/products/CustomProductModal';
+import ShareToProfilesModal from '@/components/profiles/ShareToProfilesModal';
 
 export default function ProductsPage() {
-  const { allProducts, state, toggleFavorite, removeCustomProduct, resetProductOverride, isSeedProduct } = useApp();
+  const {
+    allProducts,
+    state,
+    toggleFavorite,
+    removeCustomProduct,
+    resetProductOverride,
+    isSeedProduct,
+    shareCustomProductToProfiles,
+    profiles,
+  } = useApp();
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState<ProductCategory | 'all'>('all');
   const [brand, setBrand] = useState<string>('all');
@@ -14,6 +24,8 @@ export default function ProductsPage() {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null);
   const [confirmReset, setConfirmReset] = useState<string | null>(null);
+  const [sharingProduct, setSharingProduct] = useState<Product | null>(null);
+  const hasOtherProfiles = profiles.length > 1;
 
   // IDs of seed products that have been overridden
   const overriddenIds = useMemo(
@@ -178,6 +190,17 @@ export default function ProductsPage() {
                       ✏️
                     </button>
 
+                    {/* Compartir con otro perfil (solo productos personalizados o sobrescritos, y si hay más perfiles) */}
+                    {(isPureCustom || isOverridden) && hasOtherProfiles && (
+                      <button
+                        onClick={() => setSharingProduct(product)}
+                        className="text-gray-400 hover:text-primary-500 p-1 text-sm"
+                        title="Compartir con otro perfil"
+                      >
+                        📤
+                      </button>
+                    )}
+
                     {/* Restaurar (solo en productos de base de datos modificados) */}
                     {isOverridden && (
                       confirmReset === product.id ? (
@@ -245,6 +268,18 @@ export default function ProductsPage() {
         isOpen={customModalOpen}
         onClose={handleModalClose}
         editProduct={editingProduct}
+      />
+
+      <ShareToProfilesModal
+        isOpen={!!sharingProduct}
+        onClose={() => setSharingProduct(null)}
+        itemEmoji={sharingProduct?.emoji ?? '🍎'}
+        itemTitle={sharingProduct?.name ?? ''}
+        itemSubtitle={sharingProduct?.brand}
+        itemKind="product"
+        onShare={(targetIds) => {
+          if (sharingProduct) shareCustomProductToProfiles(sharingProduct, targetIds);
+        }}
       />
     </div>
   );
