@@ -64,4 +64,4 @@ Si tienes preguntas sobre esta política de privacidad, puedes escribir a:
 
 ---
 
-Kalo v1.6.0 — hecho con cariño en España.
+Kalo v1.7.0 — hecho con cariño en España.

@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img alt="versión" src="https://img.shields.io/badge/version-1.6.0-10b981"/>
+  <img alt="versión" src="https://img.shields.io/badge/version-1.7.0-10b981"/>
   <img alt="plataforma" src="https://img.shields.io/badge/plataforma-Android-3ddc84"/>
   <img alt="licencia" src="https://img.shields.io/badge/licencia-MIT-blue"/>
   <img alt="stack" src="https://img.shields.io/badge/React-19-61dafb"/>
